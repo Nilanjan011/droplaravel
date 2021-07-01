@@ -18,6 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .w-5{
+            width: 25px;
+        }
+        .flex-1{
+            display: none;
+        }
+    </style>
+    @yield('style')
 </head>
 <body>
     <div id="app">
@@ -79,5 +88,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('script')
 </body>
 </html>

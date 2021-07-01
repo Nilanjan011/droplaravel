@@ -23,3 +23,5 @@ Auth::routes();
 
 Route::resource('/category', "App\Http\Controllers\CategoryController");
 Route::resource('/blog', "App\Http\Controllers\BlogController");
+Route::view('/blogPgi', "blogPagi");
+

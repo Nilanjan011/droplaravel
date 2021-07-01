@@ -66,7 +66,7 @@
                         No data found
                     @endforelse
                 </tbody>
-              </table>
+            </table>
         </div>
     </div>
 </div>
