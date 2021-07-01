@@ -44,7 +44,8 @@
                             $i++;
                         @endphp
                         <td>{{$item->name}}</td>
-                        <td>{{oneField($item->cat_id,'name','categories')}}</td>
+                        {{-- <td>{{oneField($item->cat_id,'name','categories')}}</td> --}} {{-- using custom helper function--}}
+                        <td>{{ $item->c_name }}</td>{{-- using join --}}
                         <td>{{$item->description}}</td>
                         <td><img src="{{asset('storage/ava/'.$item->image)}}" alt="image" width="50" height="40" srcset=""></td>
 

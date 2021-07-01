@@ -36,7 +36,7 @@
                         <option value="{{$item->id}}">{{$item->name}}</option>
                         @endforeach
                     </select>
-                  </div>
+                </div>
                @csrf
                 <div class="form-group">
                   <label for="">Description</label>

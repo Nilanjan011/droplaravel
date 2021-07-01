@@ -21,10 +21,18 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog =Blog::toBase()->orderBy('id','DESC')->get();
-        $absentData = User::collection($blog);
-        //  dd(Blog::find(5)->category->name);
-        dd($absentData);
+        ///  join start
+        $blog = category::select('blogs.id','blogs.name','blogs.image','blogs.description','categories.name as c_name')->join('blogs','blogs.cat_id','=','categories.id')->get();
+        // dd($data);
+        return view("bloglist",compact("blog"))->with('message','successfully inserted');
+
+        ///  join end
+        
+        //  dd(Blog::find(5)->category->name); working fine
+
+        // $blog =Blog::toBase()->orderBy('id','DESC')->get();
+        // $absentData = User::collection($blog);
+        // dd($absentData);
         // return view("bloglist",compact("blog"))->with('message','successfully inserted');
     }
 
