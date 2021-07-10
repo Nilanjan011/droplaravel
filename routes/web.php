@@ -24,4 +24,7 @@ Auth::routes();
 Route::resource('/category', "App\Http\Controllers\CategoryController");
 Route::resource('/blog', "App\Http\Controllers\BlogController");
 Route::view('/blogPgi', "blogPagi");
+Route::view('/vue', "vueCom");
 
+Route::get('/add/{name}', "App\Http\Controllers\addController@add");
+Route::get('/addno', "App\Http\Controllers\addController@cartNo");

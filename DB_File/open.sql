@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2021 at 09:31 AM
+-- Generation Time: Jul 10, 2021 at 09:23 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -45,6 +45,31 @@ INSERT INTO `blogs` (`id`, `name`, `cat_id`, `description`, `image`, `created_at
 (1, 'kiran pal', '1', 'test 1', '1624521556.jpg', '2021-06-24 02:29:16', '2021-06-24 02:29:16'),
 (2, 'kiran pal', '1', 'test 2', '1624523240.jpg', '2021-06-24 02:50:11', '2021-06-24 02:57:20'),
 (5, 'Ram das', '3', 'test 2', '1624526282.jpg', '2021-06-24 03:48:02', '2021-06-24 03:48:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carti`
+--
+
+CREATE TABLE `carti` (
+  `id` int(11) NOT NULL,
+  `item` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carti`
+--
+
+INSERT INTO `carti` (`id`, `item`) VALUES
+(1, 'item-name'),
+(2, 'item-name'),
+(3, 'item-name'),
+(4, 'item-name'),
+(5, 'item-name'),
+(6, 'item-name'),
+(7, 'item-name'),
+(8, 'item-name');
 
 -- --------------------------------------------------------
 
@@ -155,6 +180,12 @@ ALTER TABLE `blogs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `carti`
+--
+ALTER TABLE `carti`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -196,6 +227,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `carti`
+--
+ALTER TABLE `carti`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `categories`
