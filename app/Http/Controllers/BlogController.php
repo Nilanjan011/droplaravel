@@ -23,7 +23,7 @@ class BlogController extends Controller
     {
         ///  join start
         $blog = category::select('blogs.id','blogs.name','blogs.image','blogs.description','categories.name as c_name')->join('blogs','blogs.cat_id','=','categories.id')->get();
-        // dd($data);
+        // dd($blog);
         return view("bloglist",compact("blog"))->with('message','successfully inserted');
 
         ///  join end

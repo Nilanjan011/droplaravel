@@ -108,6 +108,6 @@ class CategoryController extends Controller
     public function destroy(category $category)
     {
         $category->delete();
-        return redirect('category')->with('message','Delete Successfully');
+        return redirect('category')->with(['message'=>'Delete Successfully','class'=>'danger']);
     }
 }
