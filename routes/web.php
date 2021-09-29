@@ -28,3 +28,9 @@ Route::view('/vue', "vueCom");
 
 Route::get('/add/{name}', "App\Http\Controllers\addController@add");
 Route::get('/addno', "App\Http\Controllers\addController@cartNo");
+Route::get('/sms', function(){
+    $err=sms(8622910920,45465);
+    if(!$err){
+        echo "sms send";
+    }
+});
