@@ -45,7 +45,8 @@
                         @endphp
                         <td>{{$item->name}}</td>
                         {{-- <td>{{oneField($item->cat_id,'name','categories')}}</td> --}} {{-- using custom helper function--}}
-                        <td>{{ $item->c_name }}</td>{{-- using join --}}
+                        {{-- <td>{{ $item->c_name }}</td>using join --}}
+                        <td>{{ $item->category->name }}</td>{{-- using One to many relation note: if cat_id is null in this case throw error --}}
                         <td>{{$item->description}}</td>
                         <td><img src="{{asset('storage/ava/'.$item->image)}}" alt="image" width="50" height="40" srcset=""></td>
 
