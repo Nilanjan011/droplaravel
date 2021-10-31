@@ -19,4 +19,9 @@ class addController extends Controller
         // return DB::table('carti')->where("id",1)->count(); # pratice count method
         return DB::table('carti')->count();
     }
+    public function cartdsso()
+    {
+        // return DB::table('carti')->where("id",1)->count(); # pratice count method
+        return DB::table('carti')->count();
+    }
 }
