@@ -18,12 +18,19 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::resource('/admin', App\Http\Controllers\AdminController::class);
+Route::post('/admin/login', [App\Http\Controllers\AdminController::class,'login'])->name('admin.login');
+////------------ guard admin middleware start------------------------------------------------
+Route::group(['middleware'=>['auth:admin']],function(){
+    Route::view('/blogPgi', "blogPagi");
+    Route::get(/*'/admin/logout' not work say not found, so i use another name*/
+        'adminlogout', [App\Http\Controllers\AdminController::class,'logout'])->name('admin.logout');
+});
+////------------ guard admin middleware end------------------------------------------------
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/category', "App\Http\Controllers\CategoryController");
 Route::resource('/blog', "App\Http\Controllers\BlogController");
-Route::view('/blogPgi', "blogPagi");
 Route::view('/vue', "vueCom");
 
 Route::get('/add/{name}', "App\Http\Controllers\addController@add");
@@ -34,8 +41,8 @@ Route::get('/sms', function(){
     //     echo "sms send";
     // }
                                      
+    // echo Auth()->user();
     echo "env o =".env('o');
     echo "<br>";
     echo "env l =".$_ENV['l'];
-
 });

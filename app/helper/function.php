@@ -6,6 +6,7 @@ if (!function_exists('oneRow')) {
   }
 
 }
+
 if (!function_exists('oneField')) {
 
   function oneField($id,$field,$table){
@@ -13,6 +14,7 @@ if (!function_exists('oneField')) {
       return $item[0]->$field;
   }
 }
+
 if (!function_exists('sms')) {
   
   function sms($phone,$otp)
