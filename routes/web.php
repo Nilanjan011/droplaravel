@@ -23,8 +23,8 @@ Route::post('/admin/login', [App\Http\Controllers\AdminController::class,'login'
 ////------------ guard admin middleware start------------------------------------------------
 Route::group(['middleware'=>['auth:admin']],function(){
     Route::view('/blogPgi', "blogPagi");
-    Route::get(/*'/admin/logout' not work say not found, so i use another name*/
-        'adminlogout', [App\Http\Controllers\AdminController::class,'logout'])->name('admin.logout');
+    Route::get(/*'/admin/logout'/* not work say not found, so i use another name*/
+   '/adminlogout', [App\Http\Controllers\AdminController::class,'logout'])->name('admin.logout');
 });
 ////------------ guard admin middleware end------------------------------------------------
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

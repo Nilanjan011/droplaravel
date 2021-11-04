@@ -57,10 +57,14 @@ class AdminController extends Controller
         //
         
     }
-    public function logout()
+    public function logout(Request $request)
     {
-        echo "logout";
         Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        
+        echo "logout";
     }
     public function login(Request $request)
     {
@@ -69,8 +73,12 @@ class AdminController extends Controller
             "email"=>$request->email,
             "password"=>$request->password
         ];
+        // if (Auth::guard('admin')->login($data)) {  # it's not working
         if (Auth::guard('admin')->attempt($data)) {
-            echo "okkkkkkkkkkkkkkkkkkkkkkk ";
+            $request->session()->regenerate();
+            // return redirect()->intended('blogPgi'); # working fine
+
+            echo "okkkkkkkkkkkkkkkkkkkkkkk";
             echo "<a href='".route("admin.logout")."'>logout</a>";
         } else {
             echo "nottt okkkkkkkkkkkkkkkkkk";
