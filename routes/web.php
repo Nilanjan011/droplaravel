@@ -21,8 +21,8 @@ Auth::routes();
 Route::resource('/admin', App\Http\Controllers\AdminController::class);
 Route::post('/admin/login', [App\Http\Controllers\AdminController::class,'login'])->name('admin.login');
 ////------------ guard admin middleware start------------------------------------------------
+Route::view('/blogPgi', "blogPagi");
 Route::group(['middleware'=>['auth:admin']],function(){
-    Route::view('/blogPgi', "blogPagi");
     Route::get(/*'/admin/logout'/* not work say not found, so i use another name*/
    '/adminlogout', [App\Http\Controllers\AdminController::class,'logout'])->name('admin.logout');
 });

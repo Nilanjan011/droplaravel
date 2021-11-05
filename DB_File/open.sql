@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2021 at 09:23 AM
+-- Generation Time: Nov 05, 2021 at 05:31 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.1
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `open`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Rana kumargh', 'nilanjan@gmail.com', NULL, '$2y$10$aYXxseeAdihSFZjygx972OtE7MrqvX8ntKq.T6I.tA.L5.9pT54S2', NULL, '2021-11-04 08:09:55', '2021-11-04 08:09:55');
 
 -- --------------------------------------------------------
 
@@ -91,7 +115,9 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'sports', 'test 2', '2021-06-24 01:19:40', '2021-06-24 01:33:11'),
-(3, 'politics', 'politics 1', '2021-06-24 01:39:26', '2021-06-24 01:39:26');
+(3, 'politics', 'politics 1', '2021-06-24 01:39:26', '2021-06-24 01:39:26'),
+(4, 'history', 'history 1', '2021-11-05 10:54:09', '2021-11-05 10:54:09'),
+(5, 'Bengali', 'Bengali description 1', '2021-11-05 10:59:27', '2021-11-05 11:00:12');
 
 -- --------------------------------------------------------
 
@@ -131,7 +157,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2021_06_24_060200_create_categories_table', 1),
 (5, '2021_06_24_071154_create_blogs_table', 2),
-(6, '2021_06_24_072238_blog', 3);
+(6, '2021_06_24_072238_blog', 3),
+(7, '2021_11_04_082535_create_admins_table', 4);
 
 -- --------------------------------------------------------
 
@@ -167,11 +194,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'NIlanjan chakraborty', 'nilanjan@gmail.com', NULL, '$2y$10$gihH2v7p2KHwzmEjd2XvfedY2.3QPdYKJnON.6qgOv5u4LjzhcZgG', NULL, '2021-06-24 00:43:48', '2021-06-24 00:43:48');
+(1, 'NIlanjan chakraborty', 'nilanjan@gmail.com', NULL, '$2y$10$gihH2v7p2KHwzmEjd2XvfedY2.3QPdYKJnON.6qgOv5u4LjzhcZgG', NULL, '2021-06-24 00:43:48', '2021-06-24 00:43:48'),
+(2, 'Rana kumargh', 'nc@gmail.com', NULL, '$2y$10$rFaM1zpTp0DZj2bM1uYP/.azRpxy7PFuqTLLom2Fd80STbin7aAiy', NULL, '2021-11-05 10:18:05', '2021-11-05 10:18:05');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `admins_email_unique` (`email`);
 
 --
 -- Indexes for table `blogs`
@@ -223,6 +258,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
@@ -238,7 +279,7 @@ ALTER TABLE `carti`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -250,13 +291,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

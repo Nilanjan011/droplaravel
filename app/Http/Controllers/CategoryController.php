@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Categoryrequest;
 use App\Models\category;
 use Illuminate\Http\Request;
 
@@ -39,12 +40,12 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Categoryrequest $request)
     {
-        $request->validate([
-            'name'=> 'required|string|min:3|max:50|unique:categories',
-             "description" =>"required"
-        ]);
+        // $request->validate([
+        //     'name'=> 'required|string|min:3|max:50|unique:categories',
+        //      "description" =>"required"
+        // ]);
         $category=new category([
             "name"=>$request->post("name"),
             "description"=>$request->post("description"),
@@ -86,12 +87,12 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, category $category)
+    public function update(Categoryrequest $request, category $category)
     {
-        $request->validate([
-            'name'=> 'required|string|min:3|max:50',
-            "description" =>"required"
-        ]);
+        // $request->validate([
+        //     'name'=> 'required|string|min:3|max:50',
+        //     "description" =>"required"
+        // ]);
         $category->update([
             "name"=>$request->post('name'),
             "description"=>$request->post('description')
