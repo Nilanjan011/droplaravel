@@ -43,7 +43,8 @@
                         </td>
                         <td>
                             {{-- <a href="javascript:void(0)" onclick="fun({{$item->id}})" class="btn btn-outline-danger py-0">Delete</a> --}}
-                            <a href="" onclick="if(confirm('Do you want to delete this category?')) event.preventDefault(); document.getElementById('delete-{{$item->id}}').submit();" class="btn btn-outline-danger py-0">Delete</a>
+                            <a href="" onclick="if(confirm('Do you want to delete this category?')){ event.preventDefault(); document.getElementById('delete-{{$item->id}}').submit();
+                            }else{ return false;}" class="btn btn-outline-danger py-0">Delete</a>
                             <form id="delete-{{$item->id}}" method="post" action="{{route('category.destroy',$item->id)}}">
                                 @csrf
                                 @method('DELETE')
