@@ -67,8 +67,10 @@ class BlogController extends Controller
             "description" =>"required"
         ]);
         $image=$request->file('image');
-		$ext=$image->extension();
-		$file=time().'.'.$ext;
+		// $ext=$image->extension();
+		// $file=time().'.'.$ext;
+
+        $file = time().'.'.$image->getClientOriginalName().$image->extension();
 		// $image->move(public_path('images'),$file);
         $image->storeAs('ava',$file,'public'); // laravel storage use 
 
