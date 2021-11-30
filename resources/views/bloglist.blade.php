@@ -34,15 +34,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $i=1;
-                    @endphp
                     @forelse ($blog as $item)
                     <tr>
-                        <th scope="row">{{$i}}</th>
-                        @php
-                            $i++;
-                        @endphp
+                        <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$item->name}}</td>
                         {{-- <td>{{oneField($item->cat_id,'name','categories')}}</td> --}} {{-- using custom helper function--}}
                         {{-- <td>{{ $item->c_name }}</td>using join --}}

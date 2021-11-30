@@ -27,15 +27,9 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $i=1;
-                    @endphp
                     @forelse ($category as $item)
                     <tr>
-                        <th scope="row">{{$i}}</th>
-                        @php
-                            $i++;
-                        @endphp
+                        <th scope="row">{{$loop->iteration}}</th>
                         <td>{{$item->name}}</td>
                         <td>{{$item->description}}</td>
                         <td class="text-center">
