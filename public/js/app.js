@@ -1871,6 +1871,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 // import AddCart from './addCart.vue'// ata hoyato vue js lagte pare kintu laravel-vue lage na
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // name:"example-component",// ata hoyato vue js lagte pare kintu laravel-vue lage na
@@ -1892,6 +1894,16 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("http://localhost:8000/addno").then(function (response) {
         // console.log(response.data);
         _this.title = response.data;
+      });
+    },
+    saveCookies: function saveCookies() {
+      axios.get("/api/saveCookies").then(function (response) {
+        console.log(response.data);
+      });
+    },
+    getCookie: function getCookie() {
+      axios.get("/api/getCookie").then(function (response) {
+        console.log(response.data);
       });
     }
   }
@@ -37753,6 +37765,14 @@ var render = function() {
           )
         ])
       ])
+    ]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.saveCookies } }, [
+      _vm._v("save token / data in cookies using api")
+    ]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.getCookie } }, [
+      _vm._v("get token / data in cookies using api")
     ])
   ])
 }

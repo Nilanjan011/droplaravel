@@ -21,3 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/',function(Request $request) {
     return response()->json("you are invalid user",401);
 });
+Route::get('/saveCookies',function(Request $request) {
+    return response()->json("you are invalid user")->withCookie(cookie('name', 'virat', 60));
+});
+Route::get('/getCookie',function(Request $request) {
+    return $request->cookie('name');
+});

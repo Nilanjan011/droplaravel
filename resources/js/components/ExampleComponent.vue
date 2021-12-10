@@ -21,6 +21,8 @@
                 </div>
             </div>
         </div>
+        <button @click="saveCookies">save token / data in cookies using api</button>
+        <button @click="getCookie">get token / data in cookies using api</button>
     </div>
 </template>
 
@@ -48,6 +50,20 @@
                 .then((response) => {
                     // console.log(response.data);
                     this.title=response.data
+                });
+            },
+            saveCookies(){
+                axios
+                .get(`/api/saveCookies`)
+                .then((response) => {
+                    console.log(response.data);
+                });
+            },
+            getCookie(){
+                axios
+                .get(`/api/getCookie`)
+                .then((response) => {
+                    console.log(response.data);
                 });
             }
         }
