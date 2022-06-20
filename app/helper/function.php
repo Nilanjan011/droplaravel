@@ -39,7 +39,7 @@ if (!function_exists('sms')) {
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_POSTFIELDS => json_encode($fields),
         CURLOPT_HTTPHEADER => array(
-          "authorization: 5wMTIWYPFv3aXl0ibKmd98CJpeHANVojgBshxOuUyGc1Z24S6zNjOb0EDdaqYmHpXCePRlLW56x3IwAF",
+          "authorization: 5wMTIWYPFv3aXl0ib6zNjOb0EDdaqYmHpX6x3IwAF",
           "accept: */*",
           "cache-control: no-cache",
           "content-type: application/json"
